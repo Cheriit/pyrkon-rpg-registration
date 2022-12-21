@@ -1,0 +1,93 @@
+{
+  "components": [
+    {
+      "label": "Nazwa gry",
+      "type": "textfield",
+      "id": "Field_0ztxskb",
+      "key": "game_name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Opis gry",
+      "type": "textfield",
+      "id": "Field_0er1sqd",
+      "key": "game_description",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "D&D",
+          "value": "dnd"
+        },
+        {
+          "label": "Warhammer",
+          "value": "warhammer"
+        },
+        {
+          "label": "Cthuluh",
+          "value": "cthuluh"
+        },
+        {
+          "label": "Inna",
+          "value": "other"
+        }
+      ],
+      "label": "Tags",
+      "type": "taglist",
+      "id": "Field_01jul1j",
+      "key": "game_tag",
+      "properties": {
+        "required": "required:true"
+      }
+    },
+    {
+      "label": "Organizator",
+      "type": "textfield",
+      "id": "Field_0hee4xg",
+      "key": "game_organiser",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Piątek",
+          "value": "friday"
+        },
+        {
+          "label": "Sobota",
+          "value": "saturday"
+        },
+        {
+          "label": "Niedziela",
+          "value": "sunday"
+        }
+      ],
+      "label": "Dostępne dni",
+      "type": "checklist",
+      "id": "Field_0expywr",
+      "key": "field_1u2an6z"
+    },
+    {
+      "label": "Czy była organizowana wcześniej?",
+      "type": "checkbox",
+      "id": "Field_0gkhykv",
+      "key": "game_is_again"
+    }
+  ],
+  "type": "default",
+  "id": "Form_06la71c",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.6.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 5
+}
