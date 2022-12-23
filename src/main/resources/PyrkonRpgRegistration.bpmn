@@ -44,14 +44,14 @@
         <bpmn:flowNodeRef>Event_02c98jk</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="StartEvent_1" name="Rejestracja gry RPG w systemie" camunda:formRef="" camunda:formRefBinding="latest">
+    <bpmn:startEvent id="StartEvent_1" name="Rejestracja gry RPG w systemie" camunda:formRef="" camunda:formRefBinding="latest" camunda:initiator="inicjator">
       <bpmn:outgoing>Flow_12y3x59</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:businessRuleTask id="Activity_1nxajcp" name="Ocena zgłoszenia">
       <bpmn:incoming>Flow_12y3x59</bpmn:incoming>
       <bpmn:outgoing>Flow_0j308av</bpmn:outgoing>
     </bpmn:businessRuleTask>
-    <bpmn:exclusiveGateway id="Gateway_0abqn40" name="Czy grę zaakceptowano?">
+    <bpmn:exclusiveGateway id="Gateway_0abqn40" name="Czy grę zaakceptowano?" default="Flow_1191xpd">
       <bpmn:incoming>Flow_0j308av</bpmn:incoming>
       <bpmn:outgoing>Flow_1191xpd</bpmn:outgoing>
       <bpmn:outgoing>Flow_0kxpr9g</bpmn:outgoing>
@@ -65,7 +65,7 @@
       <bpmn:incoming>Flow_0kxpr9g</bpmn:incoming>
       <bpmn:outgoing>Flow_1e873b4</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_07blv9e" name="Czy zaakceptowano?">
+    <bpmn:exclusiveGateway id="Gateway_07blv9e" name="Czy zaakceptowano?" default="Flow_1vhe4io">
       <bpmn:incoming>Flow_1e873b4</bpmn:incoming>
       <bpmn:outgoing>Flow_1vhe4io</bpmn:outgoing>
       <bpmn:outgoing>Flow_0zjjin2</bpmn:outgoing>
@@ -94,7 +94,7 @@
       <bpmn:incoming>Flow_1t28jrj</bpmn:incoming>
       <bpmn:outgoing>Flow_0bewyis</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_0fm7dmd" name="Czy decyzja pozytywna">
+    <bpmn:exclusiveGateway id="Gateway_0fm7dmd" name="Czy decyzja pozytywna" default="Flow_0nluyc9">
       <bpmn:incoming>Flow_1gtk9gn</bpmn:incoming>
       <bpmn:outgoing>Flow_1t28jrj</bpmn:outgoing>
       <bpmn:outgoing>Flow_0nluyc9</bpmn:outgoing>
@@ -142,7 +142,7 @@
       <bpmn:incoming>Flow_139mifu</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1ahx5mz" />
     </bpmn:intermediateThrowEvent>
-    <bpmn:exclusiveGateway id="Gateway_0nchsiv" name="Czy jest termin?">
+    <bpmn:exclusiveGateway id="Gateway_0nchsiv" name="Czy jest termin?" default="Flow_0kyu1l6">
       <bpmn:incoming>Flow_1hdb5ji</bpmn:incoming>
       <bpmn:outgoing>Flow_139mifu</bpmn:outgoing>
       <bpmn:outgoing>Flow_0kyu1l6</bpmn:outgoing>
@@ -260,7 +260,7 @@
       <bpmndi:BPMNShape id="Gateway_07blv9e_di" bpmnElement="Gateway_07blv9e" isMarkerVisible="true">
         <dc:Bounds x="715" y="205" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="699" y="167.5" width="82" height="27" />
+          <dc:Bounds x="699" y="168" width="82" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1pa4qyw_di" bpmnElement="Event_1otzvpb">
@@ -294,7 +294,7 @@
       <bpmndi:BPMNShape id="Gateway_0fm7dmd_di" bpmnElement="Gateway_0fm7dmd" isMarkerVisible="true">
         <dc:Bounds x="425" y="495" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="420" y="457.5" width="60" height="27" />
+          <dc:Bounds x="420" y="458" width="60" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1xnkls2_di" bpmnElement="Activity_0sj8inc">

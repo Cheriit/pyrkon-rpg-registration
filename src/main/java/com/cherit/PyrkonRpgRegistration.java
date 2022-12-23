@@ -12,7 +12,7 @@ import org.camunda.bpm.engine.variable.Variables;
 
 import java.util.Map;
 
-@ProcessApplication("Pyrkon RPG Registration")
+@ProcessApplication("Pyrkon Rpg Registration")
 public class PyrkonRpgRegistration extends ServletProcessApplication {
     @PostDeploy
     public void evaluateDecisionTable(ProcessEngine processEngine) {

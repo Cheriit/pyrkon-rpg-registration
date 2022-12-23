@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_03mqhj5</bpmn:incoming>
       <bpmn:outgoing>Flow_19h8u4d</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_1cjly4d" name="Czy wejściówka zaakceptowana">
+    <bpmn:exclusiveGateway id="Gateway_1cjly4d" name="Czy wejściówka zaakceptowana" default="Flow_1h6s3rk">
       <bpmn:incoming>Flow_19h8u4d</bpmn:incoming>
       <bpmn:outgoing>Flow_1b2ytf9</bpmn:outgoing>
       <bpmn:outgoing>Flow_1h6s3rk</bpmn:outgoing>
@@ -47,7 +47,7 @@
       <bpmndi:BPMNShape id="Gateway_1cjly4d_di" bpmnElement="Gateway_1cjly4d" isMarkerVisible="true">
         <dc:Bounds x="425" y="152" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="411" y="114.5" width="78" height="27" />
+          <dc:Bounds x="411" y="115" width="78" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xghmyk_di" bpmnElement="Activity_01sf34l">
