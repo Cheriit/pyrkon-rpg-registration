@@ -54,7 +54,7 @@
     <bpmn:exclusiveGateway id="Gateway_0abqn40" name="Czy grę zaakceptowano?" default="Flow_1191xpd">
       <bpmn:incoming>Flow_0j308av</bpmn:incoming>
       <bpmn:outgoing>Flow_1191xpd</bpmn:outgoing>
-      <bpmn:outgoing>Flow_0kxpr9g</bpmn:outgoing>
+      <bpmn:outgoing>Flow_160i9gt</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="Activity_0utk2s9" name="Akceptacja terminu">
       <bpmn:extensionElements>
@@ -62,7 +62,6 @@
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0rixe6o</bpmn:incoming>
       <bpmn:incoming>Flow_0bewyis</bpmn:incoming>
-      <bpmn:incoming>Flow_0kxpr9g</bpmn:incoming>
       <bpmn:outgoing>Flow_1e873b4</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:exclusiveGateway id="Gateway_07blv9e" name="Czy zaakceptowano?" default="Flow_1vhe4io">
@@ -92,6 +91,7 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:userTask id="Activity_0stpbsn" name="Wybór proponowanego terminu gry">
       <bpmn:incoming>Flow_1t28jrj</bpmn:incoming>
+      <bpmn:incoming>Flow_160i9gt</bpmn:incoming>
       <bpmn:outgoing>Flow_0bewyis</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:exclusiveGateway id="Gateway_0fm7dmd" name="Czy decyzja pozytywna" default="Flow_0nluyc9">
@@ -117,7 +117,6 @@
     <bpmn:sequenceFlow id="Flow_12y3x59" sourceRef="StartEvent_1" targetRef="Activity_1nxajcp" />
     <bpmn:sequenceFlow id="Flow_0j308av" sourceRef="Activity_1nxajcp" targetRef="Gateway_0abqn40" />
     <bpmn:sequenceFlow id="Flow_1191xpd" name="Nie" sourceRef="Gateway_0abqn40" targetRef="Activity_0sj8inc" />
-    <bpmn:sequenceFlow id="Flow_0kxpr9g" name="Tak" sourceRef="Gateway_0abqn40" targetRef="Activity_0utk2s9" />
     <bpmn:sequenceFlow id="Flow_0rixe6o" sourceRef="Event_1vhx1nr" targetRef="Activity_0utk2s9" />
     <bpmn:sequenceFlow id="Flow_0bewyis" sourceRef="Activity_0stpbsn" targetRef="Activity_0utk2s9" />
     <bpmn:sequenceFlow id="Flow_1e873b4" sourceRef="Activity_0utk2s9" targetRef="Gateway_07blv9e" />
@@ -218,6 +217,7 @@
       <bpmn:incoming>Flow_0oul8qu</bpmn:incoming>
       <bpmn:outgoing>Flow_0iz0prv</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_160i9gt" name="Tak" sourceRef="Gateway_0abqn40" targetRef="Activity_0stpbsn" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0kajnnu">
@@ -409,13 +409,6 @@
           <dc:Bounds x="387" y="422" width="17" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0kxpr9g_di" bpmnElement="Flow_0kxpr9g">
-        <di:waypoint x="505" y="230" />
-        <di:waypoint x="560" y="230" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="524" y="212" width="17" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0rixe6o_di" bpmnElement="Flow_0rixe6o">
         <di:waypoint x="630" y="312" />
         <di:waypoint x="630" y="270" />
@@ -546,6 +539,15 @@
       <bpmndi:BPMNEdge id="Flow_0rtjqzt_di" bpmnElement="Flow_0rtjqzt">
         <di:waypoint x="1440" y="240" />
         <di:waypoint x="1472" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_160i9gt_di" bpmnElement="Flow_160i9gt">
+        <di:waypoint x="505" y="230" />
+        <di:waypoint x="520" y="230" />
+        <di:waypoint x="520" y="490" />
+        <di:waypoint x="540" y="490" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="527" y="357" width="17" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
