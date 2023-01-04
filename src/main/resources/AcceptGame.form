@@ -1,13 +1,19 @@
 {
   "components": [
     {
+      "text": "# Akceptacja gry\nZaakceptuj rozgrywkę w celu wyboru jej terminu",
+      "type": "text",
+      "id": "Field_1t0q45b"
+    },
+    {
       "label": "Nazwa gry",
       "type": "textfield",
       "id": "Field_0ztxskb",
       "key": "game_name",
       "validate": {
         "required": true
-      }
+      },
+      "disabled": true
     },
     {
       "label": "Opis gry",
@@ -16,7 +22,18 @@
       "key": "game_description",
       "validate": {
         "required": true
-      }
+      },
+      "disabled": true
+    },
+    {
+      "label": "Organizator",
+      "type": "textfield",
+      "id": "Field_0hee4xg",
+      "key": "game_organiser",
+      "validate": {
+        "required": true
+      },
+      "disabled": true
     },
     {
       "values": [
@@ -37,52 +54,45 @@
           "value": "other"
         }
       ],
-      "label": "Tags",
+      "label": "System gry",
       "type": "taglist",
       "id": "Field_01jul1j",
-      "key": "game_tag",
+      "key": "game_type",
       "properties": {
         "required": "required:true"
-      }
-    },
-    {
-      "label": "Organizator",
-      "type": "textfield",
-      "id": "Field_0hee4xg",
-      "key": "game_organiser",
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "values": [
-        {
-          "label": "Piątek",
-          "value": "friday"
-        },
-        {
-          "label": "Sobota",
-          "value": "saturday"
-        },
-        {
-          "label": "Niedziela",
-          "value": "sunday"
-        }
-      ],
-      "label": "Dostępne dni",
-      "type": "checklist",
-      "id": "Field_0expywr",
-      "key": "field_1u2an6z"
+      },
+      "disabled": true
     },
     {
       "label": "Czy była organizowana wcześniej?",
       "type": "checkbox",
       "id": "Field_0gkhykv",
-      "key": "game_is_again"
+      "key": "game_is_again",
+      "disabled": true
+    },
+    {
+      "values": [
+        {
+          "label": "Tak",
+          "value": "true"
+        },
+        {
+          "label": "Nie",
+          "value": "false"
+        }
+      ],
+      "label": "Czy akceptujesz grę?",
+      "type": "radio",
+      "id": "Field_0o9985o",
+      "key": "game_accept",
+      "defaultValue": "false",
+      "validate": {
+        "required": true
+      }
     }
   ],
   "type": "default",
-  "id": "Form_06la71c",
+  "id": "AcceptGame",
   "exporter": {
     "name": "Camunda Modeler",
     "version": "5.6.0"

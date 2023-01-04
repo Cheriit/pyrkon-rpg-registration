@@ -1,10 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<process-application xmlns="http://www.camunda.org/schema/1.0/ProcessApplication">
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<process-application
+        xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
     <process-archive name="pyrkon-rpg-registration">
         <process-engine>default</process-engine>
+
+        <resource>loan-approval.bpmn</resource>
+        <resource>AcceptDate.form</resource>
+        <resource>AcceptGame.form</resource>
+        <resource>GiveFeedback.form</resource>
+        <resource>PerformGame.form</resource>
+        <resource>ReceiveFeedback.form</resource>
+        <resource>ReceiveRejection.form</resource>
+        <resource>SelectDate.form</resource>
+        <resource>RegisterGame.form</resource>
+        <resource>AcceptGame.dmn</resource>
+        <resource>GenerateTicket.bpmn</resource>
+        <resource>CallGenerateTicket.bpmn</resource>
+        <resource>PyrkonRpgRegistration.bpmn</resource>
+
         <properties>
             <property name="isDeleteUponUndeploy">false</property>
             <property name="isScanForProcessDefinitions">true</property>
         </properties>
     </process-archive>
+
 </process-application>

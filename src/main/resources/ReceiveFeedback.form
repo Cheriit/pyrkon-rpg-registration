@@ -1,0 +1,32 @@
+{
+  "components": [
+    {
+      "text": "# Feedback z gry\n\nDzięki wielkie za przeprowadzenie gry! \n\nPoniżej możesz zapoznać się z feedbackiem naszym oraz graczy!",
+      "type": "text",
+      "id": "Field_1eoh4oi"
+    },
+    {
+      "label": "Nazwa gry",
+      "type": "textfield",
+      "id": "Field_0lujv90",
+      "key": "game_name",
+      "disabled": true
+    },
+    {
+      "label": "Feedback",
+      "type": "textfield",
+      "id": "Field_1yzzzda",
+      "key": "feedback",
+      "disabled": true
+    }
+  ],
+  "type": "default",
+  "id": "ReceiveFeedback",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.6.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 5
+}

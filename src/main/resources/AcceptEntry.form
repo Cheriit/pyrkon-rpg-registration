@@ -1,0 +1,45 @@
+{
+  "components": [
+    {
+      "text": "# Akceptacja wejściówki!",
+      "type": "text",
+      "id": "Field_0op7qra"
+    },
+    {
+      "label": "Organizator",
+      "type": "textfield",
+      "id": "Field_0lujv90",
+      "key": "game_name",
+      "disabled": true
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "true"
+        },
+        {
+          "label": "No",
+          "value": "false"
+        }
+      ],
+      "label": "Czy jest akceptacja?",
+      "type": "radio",
+      "id": "Field_1ccus9b",
+      "key": "decyzja",
+      "defaultValue": "true",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "AcceptEntry",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.6.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 5
+}

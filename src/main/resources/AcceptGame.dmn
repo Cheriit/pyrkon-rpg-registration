@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions" name="AcceptGame" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="AcceptGame" name="AcceptGame">
+    <decisionTable id="DecisionTable_0am7xau" hitPolicy="FIRST">
+      <input id="Input_1" label="Gra przeprowadzana ponownie?" biodi:width="346" camunda:inputVariable="game_is_again">
+        <inputExpression id="InputExpression_1" typeRef="boolean" expressionLanguage="feel">
+          <text>game_is_again</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cu7n4x" label="Długość gry" biodi:width="377" camunda:inputVariable="game_description">
+        <inputExpression id="LiteralExpression_033e228" typeRef="integer" expressionLanguage="feel">
+          <text>string length(game_description)</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Status gry" name="game_status" typeRef="string">
+        <outputValues id="UnaryTests_0xeqohe">
+          <text>"accepted","toVerify"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1emagdq">
+        <description></description>
+        <inputEntry id="UnaryTests_1e0hxjw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t55hnm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lwl81y">
+          <text>"accepted"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0og3icx">
+        <inputEntry id="UnaryTests_0yhvi5j">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sqsso1">
+          <text>&gt;= 15</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ccg95n">
+          <text>"accepted"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mxlixv">
+        <inputEntry id="UnaryTests_1shp7m6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pzkroo">
+          <text>&lt; 15</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10s88uw">
+          <text>"toVerify"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="AcceptGame">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

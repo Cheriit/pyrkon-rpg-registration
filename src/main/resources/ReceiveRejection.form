@@ -1,0 +1,25 @@
+{
+  "components": [
+    {
+      "text": "# Odrzucenie gry\nWybacz, ale twoja gra nie spełniała wymagań",
+      "type": "text",
+      "id": "Field_1eoh4oi"
+    },
+    {
+      "label": "Nazwa gry",
+      "type": "textfield",
+      "id": "Field_0lujv90",
+      "key": "game_name",
+      "disabled": true
+    }
+  ],
+  "type": "default",
+  "id": "ReceiveRejection",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.6.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 5
+}

@@ -1,0 +1,78 @@
+{
+  "components": [
+    {
+      "text": "# Rejestracja gry\nZarejestruj swoja własną rozgrywkę",
+      "type": "text",
+      "id": "Field_1t0q45b"
+    },
+    {
+      "label": "Nazwa gry",
+      "type": "textfield",
+      "id": "Field_0ztxskb",
+      "key": "game_name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Opis gry",
+      "type": "textfield",
+      "id": "Field_0er1sqd",
+      "key": "game_description",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Organizator",
+      "type": "textfield",
+      "id": "Field_0hee4xg",
+      "key": "game_organiser",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "D&D",
+          "value": "dnd"
+        },
+        {
+          "label": "Warhammer",
+          "value": "warhammer"
+        },
+        {
+          "label": "Cthuluh",
+          "value": "cthuluh"
+        },
+        {
+          "label": "Inna",
+          "value": "other"
+        }
+      ],
+      "label": "System gry",
+      "type": "taglist",
+      "id": "Field_01jul1j",
+      "key": "game_type",
+      "properties": {
+        "required": "required:true"
+      }
+    },
+    {
+      "label": "Czy była organizowana wcześniej?",
+      "type": "checkbox",
+      "id": "Field_0gkhykv",
+      "key": "game_is_again"
+    }
+  ],
+  "type": "default",
+  "id": "RegisterGame",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.6.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 5
+}

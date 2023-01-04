@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1e71z71" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <bpmn:process id="CallGenerateTicket" name="CallGenerateTicket" isExecutable="true">
+    <bpmn:callActivity id="Activity_1a7dsr6" name="Generowanie biletu" calledElement="GenerateTicket">
+      <bpmn:extensionElements>
+        <camunda:in source="game_organiser" target="game_organiser" />
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+        <camunda:out source="ticket" target="ticket" />
+        <camunda:in businessKey="#{execution.processBusinessKey}" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1cu67k7</bpmn:incoming>
+      <bpmn:outgoing>Flow_05cpufz</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:boundaryEvent id="Event_02c98jk" attachedToRef="Activity_1a7dsr6">
+      <bpmn:outgoing>Flow_0ea2avp</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_06kwik1" errorRef="Error_1g6l8wn" />
+    </bpmn:boundaryEvent>
+    <bpmn:startEvent id="Event_11q6g7p" name="Odebranie informacj o akceptacji terminu gry" camunda:asyncBefore="true">
+      <bpmn:outgoing>Flow_1cu67k7</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0b6hv50" messageRef="Message_2df9280" />
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1cu67k7" sourceRef="Event_11q6g7p" targetRef="Activity_1a7dsr6" />
+    <bpmn:endEvent id="Event_1mitfh7" name="Przesłanie informacji o odrzuceniu gry" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:exclusive="false">
+      <bpmn:incoming>Flow_0ea2avp</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1ov1uno" messageRef="Message_2ia565d" camunda:class="com.cherit.callbacks.RejectGameCallback" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_05cpufz" sourceRef="Activity_1a7dsr6" targetRef="Event_1nwwwat" />
+    <bpmn:endEvent id="Event_1nwwwat" name="Wysłanie informacji o darmowej wejściówce" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:exclusive="false">
+      <bpmn:incoming>Flow_05cpufz</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0eefl1r" messageRef="Message_363bimn" camunda:class="com.cherit.callbacks.AcceptEntryCallback" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0ea2avp" sourceRef="Event_02c98jk" targetRef="Event_1mitfh7" />
+  </bpmn:process>
+  <bpmn:message id="Message_2df9280" name="acceptDateMsg" />
+  <bpmn:message id="Message_2ia565d" name="rejectGameMsg" />
+  <bpmn:message id="Message_363bimn" name="acceptEntryMsg" />
+  <bpmn:error id="Error_1g6l8wn" name="EntryAcceptError" errorCode="EntryAcceptErrorCode" camunda:errorMessage="Entry has been rejected" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CallGenerateTicket">
+      <bpmndi:BPMNShape id="Activity_1wo0iwg_di" bpmnElement="Activity_1a7dsr6">
+        <dc:Bounds x="300" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0fyy5us_di" bpmnElement="Event_11q6g7p">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159" y="145" width="89" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1oeg2bt_di" bpmnElement="Event_1nwwwat">
+        <dc:Bounds x="502" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="492" y="145" width="57" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0p7x96x_di" bpmnElement="Event_1mitfh7">
+        <dc:Bounds x="362" y="232" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="344" y="275" width="73" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_190mtak_di" bpmnElement="Event_02c98jk">
+        <dc:Bounds x="362" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1cu67k7_di" bpmnElement="Flow_1cu67k7">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05cpufz_di" bpmnElement="Flow_05cpufz">
+        <di:waypoint x="400" y="120" />
+        <di:waypoint x="502" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ea2avp_di" bpmnElement="Flow_0ea2avp">
+        <di:waypoint x="380" y="178" />
+        <di:waypoint x="380" y="232" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
